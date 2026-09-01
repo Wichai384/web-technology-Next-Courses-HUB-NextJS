@@ -6,17 +6,22 @@ export default function Navbar() {
       <ul className="navList">
         <li>
           <Link className="navLink" href="/">
-            หน้าแรก
+            Home
           </Link>
         </li>
         <li>
           <Link className="navLink" href="/courses">
-            รายวิชา
+            Courses
           </Link>
         </li>
         <li>
           <Link className="navLink" href="/about">
-            เกี่ยวกับ
+            About
+          </Link>
+        </li>
+        <li>
+          <Link className="navLink" href="/idol">
+            IDOL
           </Link>
         </li>
       </ul>
