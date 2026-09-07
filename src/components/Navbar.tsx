@@ -21,7 +21,7 @@ export default function Navbar() {
         </li>
         <li>
           <Link className="navLink" href="/idol">
-            IDOL
+            Bands
           </Link>
         </li>
       </ul>

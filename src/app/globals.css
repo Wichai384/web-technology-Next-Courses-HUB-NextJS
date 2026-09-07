@@ -1,41 +1,69 @@
 @import "tailwindcss";
 
-:root {
-  --paper: #efe8d8;
-  --ink: #221c16;
-  --ink-soft: #524839;
-  --amber: #c1861f;
-  --amber-deep: #8f5f12;
-  --line: #d8cdb3;
-  --greenmju:#14532d;
-  --card-shadow: 6px 6px 0 var(--ink);
-  
-}
+/* =========================================================
+  1. ตัวแปรสีและค่าพื้นฐาน
+  ========================================================= */
 
+/* สีและเงาหลักที่ใช้ร่วมกันทั้งเว็บไซต์ */
+:root {
+  --beige: #fff4df;
+  --brown: #20283b;
+  --soft-brown: #596174;
+  --gold: #f4a340;
+  --dark-gold: #c66a22;
+  --sand: #f4d8b4;
+  --green: #087f8c;
+  --yellow: #ffd166;
+  --coral: #ef6f61;
+  --blue: #4f7cac;
+  --mint: #d9f1e8;
+  --white: #ffffff;
+  --ivory: #fffaf2;
+  --light-gray: #e4d9cf;
+  --cream: #fffdf8;
+  --red: #d94b59;
+  --card-shadow: 7px 7px 0 rgba(32, 40, 59, 0.16);
+}
+/* กำหนด box model ให้คำนวณขนาดรวม padding และ border */
 * {
   box-sizing: border-box;
 }
 
+/* =========================================================
+   2. พื้นฐานของเว็บไซต์
+   ========================================================= */
+
+/* พื้นหลัง ลายกระดาษ สีตัวอักษร และฟอนต์หลักของเว็บไซต์ */
 body {
   margin: 0;
-  background: #f8fafc;
-  background: var(--paper);
-  background-image: radial-gradient(var(--line) 1px, transparent 1px);
-  background-size: 22px 22px;
-  color: var(--ink);
+  background-color: var(--beige);
+  background-image: radial-gradient(var(--sand) 1.2px, transparent 1.2px),
+    linear-gradient(135deg, rgba(239, 111, 97, 0.08), transparent 38%),
+    linear-gradient(315deg, rgba(79, 124, 172, 0.08), transparent 35%);
+  background-size: 22px 22px, 100% 100%, 100% 100%;
+  color: var(--brown);
   font-family: "IBM Plex Sans Thai", "Noto Sans Thai", sans-serif;
 }
 
+/* =========================================================
+   3. Navigation และพื้นที่เนื้อหา
+   ========================================================= */
+
+/* แถบหัวเว็บไซต์ */
 .siteHeader {
-  background: var(--greenmju);
+  background: var(--brown);
+  border-bottom: 5px solid var(--gold);
+  box-shadow: 0 5px 0 rgba(239, 111, 97, 0.35);
 }
 
+/* จำกัดความกว้างและจัดเนื้อหาให้อยู่กึ่งกลาง */
 .navbar,
 .page {
   width: min(100% - 2rem, 70rem);
   margin-inline: auto;
 }
 
+/* รายการเมนูในแถบนำทาง */
 .navList {
   display: flex;
   gap: 1rem;
@@ -44,74 +72,204 @@ body {
   list-style: none;
 }
 
+/* ลิงก์แต่ละรายการในเมนู */
 .navLink {
-  color: white;
+  display: inline-block;
+  padding: 0.35rem 0.7rem;
+  border-radius: 999px;
+  color: var(--white);
+  font-weight: 700;
   text-decoration: none;
+  transition: background 160ms ease, color 160ms ease, transform 160ms ease;
 }
 
+/* ขีดเส้นใต้ลิงก์เมื่อวางเมาส์หรือโฟกัสด้วยแป้นพิมพ์ */
 .navLink:hover,
 .navLink:focus-visible {
-  text-decoration: underline;
+  background: var(--yellow);
+  color: var(--brown);
+  text-decoration: none;
+  transform: translateY(-2px);
 }
 
+/* ระยะห่างด้านบนและด้านล่างของเนื้อหาหลัก */
 .page {
-  padding-block: 2rem;
+  padding-block: 3rem 5rem;
 }
 
+/* =========================================================
+   4. ช่องค้นหารายวิชา
+   ========================================================= */
+
+/* แถบค้นหา จัดช่องค้นหาไปทางขวา */
+.searchBar {
+  display: flex;
+  justify-content: flex-end;
+  margin-bottom: 1.5rem;
+}
+
+/* ช่องค้นหารายวิชา */
+.searchInput {
+  width: min(100%, 22rem);
+  padding: 0.8rem 1rem;
+  border: 2px solid var(--blue);
+  border-radius: 0.75rem;
+  outline: none;
+  background: var(--ivory);
+  color: var(--brown);
+  font: inherit;
+  box-shadow: 4px 4px 0 var(--coral);
+  transition: box-shadow 160ms ease, transform 160ms ease;
+}
+
+/* สีข้อความตัวอย่างในช่องค้นหา */
+.searchInput::placeholder {
+  color: var(--brown);
+}
+
+/* เปลี่ยนสีกรอบและเงาเมื่อเลือกช่องค้นหา */
+.searchInput:focus {
+  border-color: var(--green);
+  box-shadow: 4px 4px 0 var(--green);
+  transform: translate(-2px, -2px);
+}
+
+/* =========================================================
+   5. รายวิชาและรายการโปรด
+   ========================================================= */
+
+/* กริดสำหรับแสดงรายการรายวิชา */
 .courseGrid {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(16rem, 1fr));
   gap: 1rem;
 }
 
+/* กรอบและพื้นหลังของการ์ดรายวิชาแต่ละใบ */
 .courseCard {
+  position: relative;
+  overflow: hidden;
   padding: 1rem;
-  border: 1px solid #d1d5db;
+  border: 2px solid var(--light-gray);
   border-radius: 0.75rem;
-  background: white;
+  background: var(--white);
+  box-shadow: 0 5px 0 var(--blue);
+  transition: transform 180ms ease, box-shadow 180ms ease;
 }
 
+.courseCard::before {
+  content: "";
+  position: absolute;
+  inset: 0 0 auto;
+  height: 6px;
+  background: var(--coral);
+}
+
+.courseCard:nth-child(2) {
+  box-shadow: 0 5px 0 var(--green);
+}
+
+.courseCard:nth-child(2)::before {
+  background: var(--green);
+}
+
+.courseCard:nth-child(3) {
+  box-shadow: 0 5px 0 var(--gold);
+}
+
+.courseCard:nth-child(3)::before {
+  background: var(--gold);
+}
+
+.courseCard:nth-child(4) {
+  box-shadow: 0 5px 0 var(--blue);
+}
+
+.courseCard:hover {
+  transform: translateY(-5px) rotate(-0.5deg);
+  box-shadow: 0 10px 0 var(--brown);
+}
+
+/* ปุ่มเพิ่มหรือลบรายวิชาในรายการโปรด */
+.favoriteButton {
+  margin-top: 0.75rem;
+  padding: 0.55rem 0.8rem;
+  border: 2px solid var(--brown);
+  border-radius: 0.5rem;
+  background: var(--coral);
+  color: var(--white);
+  color: var(--brown);
+  cursor: pointer;
+  font: inherit;
+}
+
+.favoriteButton:hover,
+.favoriteButton:focus-visible {
+  background: var(--green);
+  color: var(--white);
+  transform: translateY(-2px);
+}
+
+
+
+.bandFavoriteButton:hover,
+.bandFavoriteButton:focus-visible {
+  color: var(--gold);
+  transform: scale(1.1);
+}
+
+/* รูปแบบพื้นฐานของข้อความสถานะการลงทะเบียน */
 .status-open,
 .status-closed {
   font-weight: 700;
 }
 
+/* สีเขียวสำหรับรายวิชาที่เปิดลงทะเบียน */
 .status-open {
-  color: #15803d;
+  color: var(--green);
 }
 
+/* สีแดงสำหรับรายวิชาที่ปิดลงทะเบียน */
 .status-closed {
-  color: #dc2626;
+  color: var(--red);
 }
 
+/* พื้นที่เว้นว่างสำหรับซ่อนองค์ประกอบบางส่วน */
 .boxhide {
   visibility: hidden;
   height: 1.5rem;
 }
 
-/*------------------------------------ band ---------------------------------------*/
+/* =========================================================
+   6. ข้อมูลวงดนตรี
+   ========================================================= */
 
+/* ป้องกันปัญหา box model ในส่วนวงดนตรี */
 * {
   box-sizing: border-box;
 }
 
+/* กำหนดความกว้างและระยะขอบของเนื้อหาหลัก */
 main {
   max-width: 1080px;
   margin: 0 auto;
   padding: 56px 24px 96px;
 }
 
+/* หัวข้อหลักของหน้า */
 main > h1 {
   font-family: "Kanit", sans-serif;
   font-weight: 700;
   font-size: clamp(2.25rem, 5vw, 3.25rem);
   letter-spacing: 0.01em;
   margin: 0 0 40px;
-  border-bottom: 4px solid var(--ink);
+  color: var(--brown);
+  border-bottom: 5px solid var(--coral);
+  text-shadow: 3px 3px 0 rgba(244, 163, 64, 0.35);
   padding-bottom: 16px;
 }
 
-/* ----- กริดการ์ดวงดนตรี ----- */
+/* ----- 6.1 กริดและการ์ดวงดนตรี ----- */
 
 .band-grid {
   display: grid;
@@ -119,28 +277,38 @@ main > h1 {
   gap: 40px;
 }
 
+/* โครงสร้างหลักของการ์ดวงดนตรี */
 .band-card {
-  background: #fbf8f0;
-  border: 2px solid var(--ink);
+  background: var(--cream);
+  border: 2px solid var(--brown);
+  border-radius: 1rem;
   box-shadow: var(--card-shadow);
   overflow: hidden;
   display: flex;
   flex-direction: column;
 }
 
+/* พื้นที่รูปภาพของการ์ดวงดนตรี */
 .band-card__image {
   position: relative;
   aspect-ratio: 4 / 3;
-  background: var(--ink);
+  background: var(--brown);
 }
 
+/* ปรับขนาดรูปภาพให้เต็มพื้นที่และเพิ่มโทนสี */
 .band-card__image img {
   width: 100%;
   height: 100%;
   object-fit: cover;
-  filter: grayscale(35%) contrast(1.05);
+  filter: saturate(1.15) contrast(1.05);
+  transition: transform 250ms ease;
 }
 
+.band-card:hover .band-card__image img {
+  transform: scale(1.06);
+}
+
+/* ชื่อวงดนตรี */
 .band-card h2 {
   font-family: "Kanit", sans-serif;
   font-weight: 700;
@@ -148,21 +316,65 @@ main > h1 {
   margin: 20px 20px 4px;
 }
 
+/* ข้อมูลประกอบของวงดนตรี */
 .band-card__meta {
   margin: 0 20px 12px;
   font-size: 0.85rem;
-  color: var(--amber-deep);
+  color: var(--dark-gold);
   font-weight: 500;
 }
 
+/* คำอธิบายวงดนตรี */
 .band-card > p:not(.band-card__meta) {
   margin: 0 20px 20px;
   font-size: 0.95rem;
   line-height: 1.6;
-  color: var(--ink-soft);
+  color: var(--soft-brown);
 }
 
-/* ----- เส้นปรุแบบตั๋วคอนเสิร์ต คั่นก่อนรายชื่อสมาชิก ----- */
+/* ปุ่มติดตามและถูกใจของการ์ดวงดนตรี */
+.band-card__actions {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  margin: 0 20px 1rem;
+}
+
+.bandFollowButton,
+.bandLikeButton {
+  padding: 0.5rem 0.75rem;
+  border: 2px solid var(--brown);
+  border-radius: 0.5rem;
+  background: var(--yellow);
+  color: var(--brown);
+  cursor: pointer;
+  font: inherit;
+}
+
+.bandFollowButton:hover,
+.bandFollowButton:focus-visible,
+.bandLikeButton:hover,
+.bandLikeButton:focus-visible {
+  background: var(--green);
+  color: var(--white);
+}
+
+.followingCount {
+  margin: 0 0 1rem;
+  font-weight: 700;
+}
+
+.emptyState {
+  padding: 2rem;
+  border: 2px dashed var(--coral);
+  border-radius: 0.75rem;
+  background: rgba(255, 255, 255, 0.6);
+  text-align: center;
+}
+
+/* ----- 6.2 รายละเอียดและสมาชิกของวงดนตรี ----- */
+
+/* หัวข้อรายชื่อสมาชิกและเส้นคั่นแบบตั๋วคอนเสิร์ต */
 
 .band-card h3 {
   position: relative;
@@ -172,10 +384,11 @@ main > h1 {
   font-weight: 600;
   font-size: 0.95rem;
   letter-spacing: 0.04em;
-  color: var(--ink);
-  border-top: 2px dashed var(--ink);
+  color: var(--brown);
+  border-top: 2px dashed var(--brown);
 }
 
+/* วงกลมตกแต่งปลายเส้นคั่น */
 .band-card h3::before,
 .band-card h3::after {
   content: "";
@@ -183,20 +396,22 @@ main > h1 {
   top: -9px;
   width: 16px;
   height: 16px;
-  background: var(--paper);
-  border: 2px solid var(--ink);
+  background: var(--beige);
+  border: 2px solid var(--brown);
   border-radius: 50%;
 }
 
+/* ตำแหน่งวงกลมด้านซ้าย */
 .band-card h3::before {
   left: -9px;
 }
 
+/* ตำแหน่งวงกลมด้านขวา */
 .band-card h3::after {
   right: -9px;
 }
 
-/* ----- รายชื่อสมาชิก ----- */
+/* รายการสมาชิกในวง */
 
 .band-card__members {
   list-style: none;
@@ -207,40 +422,49 @@ main > h1 {
   gap: 14px;
 }
 
+/* แถวข้อมูลสมาชิกแต่ละคน */
 .band-card__member {
   display: flex;
   align-items: center;
   gap: 12px;
 }
 
+/* รูปภาพสมาชิก */
 .band-card__member-photo {
   width: 52px;
   height: 52px;
   border-radius: 50%;
   object-fit: cover;
-  border: 2px solid var(--ink);
+  border: 2px solid var(--brown);
   flex-shrink: 0;
 }
 
+/* ชื่อสมาชิก */
 .band-card__member-name {
   font-weight: 600;
-  color: var(--ink);
+  color: var(--brown);
 }
 
+/* บทบาทหรือตำแหน่งของสมาชิก */
 .band-card__member-role {
   display: block;
   font-size: 0.82rem;
-  color: var(--amber-deep);
+  color: var(--dark-gold);
 }
 
-/* ----- responsive ----- */
+/* =========================================================
+   7. Responsive สำหรับหน้าจอขนาดเล็ก
+   ========================================================= */
 
 @media (max-width: 480px) {
+  /* ลดระยะขอบของเนื้อหาหลักบนมือถือ */
   main {
     padding: 40px 16px 64px;
   }
 
+  /* แสดงการ์ดวงดนตรีเป็นคอลัมน์เดียวบนมือถือ */
   .band-grid {
     grid-template-columns: 1fr;
   }
 }
+

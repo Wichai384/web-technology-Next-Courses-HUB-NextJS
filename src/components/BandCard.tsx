@@ -4,9 +4,21 @@ import type { Band } from "../types/Band";
 
 type BandCardProps = {
   band: Band;
+  isFollowing?: boolean;
+  onToggleFollowing?: (id: number) => void;
+  isLiked?: boolean;
+  likeCount?: number;
+  onToggleLike?: (id: number) => void;
 };
 
-export default function BandCard({ band }: BandCardProps) {
+export default function BandCard({
+  band,
+  isFollowing = false,
+  onToggleFollowing,
+  isLiked = false,
+  likeCount = 0,
+  onToggleLike,
+}: BandCardProps) {
   return (
     <article className="band-card">
       <div className="band-card__image">
@@ -27,6 +39,34 @@ export default function BandCard({ band }: BandCardProps) {
         ก่อตั้งปี พ.ศ. {band.formedYear}
       </p>
       <p>{band.description}</p>
+
+      <div className="band-card__actions">
+      {onToggleFollowing && (
+        <button
+          type="button"
+          className="bandFollowButton"
+          onClick={() => onToggleFollowing(band.id)}
+          aria-pressed={isFollowing}
+          aria-label={
+            isFollowing ? "เลิกติดตามวงดนตรี" : "ติดตามวงดนตรี"
+          }
+          title={isFollowing ? "เลิกติดตาม" : "ติดตาม"}
+        >
+          {isFollowing ? "เลิกติดตาม" : "ติดตาม"}
+        </button>
+      )}
+      {onToggleLike && (
+        <button
+          type="button"
+          className="bandLikeButton"
+          onClick={() => onToggleLike(band.id)}
+          aria-pressed={isLiked}
+          aria-label="กดถูกใจวงดนตรี"
+        >
+          {isLiked ? "♥" : "♡"} <span>{likeCount}</span>
+        </button>
+      )}
+      </div>
 
       <h3>สมาชิกในวง</h3>
       <ul className="band-card__members">

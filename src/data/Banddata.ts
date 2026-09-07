@@ -8,9 +8,9 @@ export const bands: Band[] = [
         formedYear: 2565,
         description:
             "เพลงโฟล์กฟังสบายของภูมิมินท์ ผู้แต่งเนื้อร้อง ทำนอง และเรียบเรียงดนตรีด้วยตัวเอง",
-        imageUrl: "/Phumin.jpg",
+        imageUrl: "/images/bands/Phumin/Phumin.jpg",
         members: [
-            { id: 1, name: "ภูมิมินท์ บึงชารี", role: "ร้องนำ / แต่งเพลง / เรียบเรียง" ,imageUrl: "/Phumin.jpg" },
+            { id: 1, name: "ภูมิมินท์ บึงชารี", role: "ร้องนำ / แต่งเพลง / เรียบเรียง" ,imageUrl: "/images/bands/Phumin/Phumin.jpg" },
         ],
     },
     {
@@ -20,11 +20,11 @@ export const bands: Band[] = [
         formedYear: 2539,
         description:
             "วงร็อกไทยในตำนาน ที่สร้างชื่อจากเพลงร็อกแอนด์โรลที่ติดหูคนไทยทั้งประเทศ",
-        imageUrl: "/Loso.jpg",
+        imageUrl: "/images/bands/LOSO/Loso.jpg",
         members: [
-            {id: 1,name: "เสก (เสกสรรค์ ศุขพิมาย)",role: "ร้องนำ / กีตาร์ / แต่งเพลง",imageUrl: "/sek.webp"},
-            { id: 2, name: "ใหญ่ (กิตติศักดิ์ โคตรคำ)", role: "กลอง",imageUrl:"/Yai.jpg" },
-            { id: 3, name: "กลาง (ณัฐพล สุนทรานู)", role: "เบส" ,imageUrl: "/gak.png"  },
+            {id: 1,name: "เสก (เสกสรรค์ ศุขพิมาย)",role: "ร้องนำ / กีตาร์ / แต่งเพลง",imageUrl: "/images/bands/LOSO/sek.webp"},
+            { id: 2, name: "ใหญ่ (กิตติศักดิ์ โคตรคำ)", role: "กลอง",imageUrl:"/images/bands/LOSO/Yai.jpg" },
+            { id: 3, name: "กลาง (ณัฐพล สุนทรานู)", role: "เบส" ,imageUrl: "/images/bands/LOSO/gak.png"  },
         ],
     },
     {
@@ -34,14 +34,14 @@ export const bands: Band[] = [
         formedYear: 2561,
         description:
             "วงเพื่อชีวิตร่วมสมัยที่นำเสนอเนื้อหาสะท้อนสังคมผ่านทำนองที่ฟังง่าย ",
-        imageUrl: "/taitosmith2.jpg",
+        imageUrl: "/images/bands/Taitosmith/taitosmith2.jpg",
         members: [
-            { id: 1, name: "จ๋าย (อิชณน์กร พึ่งเกียรติรัศมี)", role: "ร้องนำ / กีตาร์" ,imageUrl:"/jai.jpg" },
-            { id: 2, name: "โฟร์โมส (ตฤณสิษฐ์ สิริพัชญาษานต์)", role: "ร้องนำ / กีตาร์" ,imageUrl:"/fomos.jpg" },
-            { id: 3, name: "เจ (ธนกฤต สองเมือง)", role: "คีย์บอร์ด" ,imageUrl:"/j.jpg"},
-            { id: 4, name: "มีน (ปัณณสิทธิ์ สุขโหตุ)", role: "กีตาร์โซโล่" ,imageUrl:"/meen.jpg"},
-            { id: 5, name: "เจต (เจษฎา ปัญญา)", role: "เบส" ,imageUrl:"/jant.jpg"},
-            { id: 6, name: "ตุ๊ก (พัฒนภูมิ ชอุ่มผล)", role: "กลอง" ,imageUrl:"/tok.jpg"},
+            { id: 1, name: "จ๋าย (อิชณน์กร พึ่งเกียรติรัศมี)", role: "ร้องนำ / กีตาร์" ,imageUrl:"/images/bands/Taitosmith/jai.jpg" },
+            { id: 2, name: "โฟร์โมส (ตฤณสิษฐ์ สิริพัชญาษานต์)", role: "ร้องนำ / กีตาร์" ,imageUrl:"/images/bands/Taitosmith/fomos.jpg" },
+            { id: 3, name: "เจ (ธนกฤต สองเมือง)", role: "คีย์บอร์ด" ,imageUrl:"/images/bands/Taitosmith/j.jpg"},
+            { id: 4, name: "มีน (ปัณณสิทธิ์ สุขโหตุ)", role: "กีตาร์โซโล่" ,imageUrl:"/images/bands/Taitosmith/meen.jpg"},
+            { id: 5, name: "เจต (เจษฎา ปัญญา)", role: "เบส" ,imageUrl:"/images/bands/Taitosmith/jant.jpg"},
+            { id: 6, name: "ตุ๊ก (พัฒนภูมิ ชอุ่มผล)", role: "กลอง" ,imageUrl:"/images/bands/Taitosmith/tok.jpg"},
         ],
     },
 ];
