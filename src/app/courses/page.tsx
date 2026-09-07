@@ -1,54 +1,10 @@
+import { courses } from "../../data/coursesdata";
+
 export const metadata = {
   title: "รายวิชา",
 };
 
 export default function AboutCourses() {
-  type course = {
-    id: number;
-    code: string;
-    title: string;
-    credits: string;
-    isOpen: boolean;
-  };
-
-  const courses: course[] = [
-    {
-      id: 1,
-      code: "10301231",
-      title: "Web Technology",
-      credits: "3",
-      isOpen: true,
-    },
-    {
-      id: 2,
-      code: "10301232",
-      title: "Database Systems",
-      credits: "3",
-      isOpen: false,
-    },
-    {
-      id: 3,
-      code: "10301233",
-      title: "Data Structures and Algorithms",
-      credits: "3",
-      isOpen: true,
-    },
-    {
-      id: 4,
-      code: "10301234",
-      title: "Computer Networks",
-      credits: "3",
-      isOpen: true,
-    },
-    {
-      id: 5,
-      code: "10301235",
-      title: "Mobile Application Development",
-      credits: "3",
-      isOpen: false,
-    },
-  ];
-
   return (
     <main>
         <div className="box2">
