@@ -59,7 +59,9 @@ export default function AboutCourses() {
               <h2>{course.title}</h2>
               <p>รหัสวิชา: {course.code}</p>
               <p>{course.credits} หน่วยกิต</p>
-              <p>{course.isOpen ? "เปิดลงทะเบียน" : "ปิดลงทะเบียน"}</p>
+              <p className={course.isOpen ? "status-open" : "status-closed"}>
+                {course.isOpen ? "เปิดลงทะเบียน" : "ปิดลงทะเบียน"}
+              </p>
             </article>
           ))}
             </section>
