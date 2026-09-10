@@ -44,7 +44,7 @@ export default function BandCard({
       {onToggleFollowing && (
         <button
           type="button"
-          className="bandFollowButton"
+          className={`bandFollowButton${isFollowing ? " isActive" : ""}`}
           onClick={() => onToggleFollowing(band.id)}
           aria-pressed={isFollowing}
           aria-label={
@@ -58,7 +58,7 @@ export default function BandCard({
       {onToggleLike && (
         <button
           type="button"
-          className="bandLikeButton"
+          className={`bandLikeButton${isLiked ? " isActive" : ""}`}
           onClick={() => onToggleLike(band.id)}
           aria-pressed={isLiked}
           aria-label="กดถูกใจวงดนตรี"

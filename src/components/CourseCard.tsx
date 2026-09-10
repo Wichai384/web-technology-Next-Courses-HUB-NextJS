@@ -22,7 +22,7 @@ export default function CourseCard({
       {onToggleFavorite && (
         <button
           type="button"
-          className="favoriteButton"
+          className={`favoriteButton${isFavorite ? " isActive" : ""}`}
           onClick={() => onToggleFavorite(course.id)}
           aria-pressed={isFavorite}
         >

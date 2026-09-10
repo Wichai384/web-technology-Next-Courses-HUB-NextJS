@@ -86,8 +86,8 @@ body {
 /* ขีดเส้นใต้ลิงก์เมื่อวางเมาส์หรือโฟกัสด้วยแป้นพิมพ์ */
 .navLink:hover,
 .navLink:focus-visible {
-  background: var(--yellow);
-  color: var(--brown);
+  background: #ffe7df;
+  color: #b94335;
   text-decoration: none;
   transform: translateY(-2px);
 }
@@ -196,18 +196,31 @@ body {
   padding: 0.55rem 0.8rem;
   border: 2px solid var(--brown);
   border-radius: 0.5rem;
-  background: var(--coral);
-  color: var(--white);
+  background: var(--yellow);
   color: var(--brown);
   cursor: pointer;
   font: inherit;
+  font-weight: 700;
+  transition: background 160ms ease, color 160ms ease, transform 160ms ease;
 }
 
 .favoriteButton:hover,
 .favoriteButton:focus-visible {
+  background: #ffd2c5;
+  color: #9f3027;
+  transform: translateY(-2px);
+}
+
+.favoriteButton.isActive {
+  background: var(--coral);
+  color: var(--white);
+  box-shadow: 3px 3px 0 var(--brown);
+}
+
+.favoriteButton.isActive:hover,
+.favoriteButton.isActive:focus-visible {
   background: var(--green);
   color: var(--white);
-  transform: translateY(-2px);
 }
 
 
@@ -345,17 +358,43 @@ main > h1 {
   padding: 0.5rem 0.75rem;
   border: 2px solid var(--brown);
   border-radius: 0.5rem;
-  background: var(--yellow);
-  color: var(--brown);
+  background: #e3f5f3;
+  color: var(--green);
   cursor: pointer;
   font: inherit;
+  font-weight: 700;
+  transition: background 160ms ease, color 160ms ease, transform 160ms ease;
 }
 
 .bandFollowButton:hover,
 .bandFollowButton:focus-visible,
 .bandLikeButton:hover,
 .bandLikeButton:focus-visible {
+  background: #c8ebe7;
+  color: var(--green);
+  transform: translateY(-2px);
+}
+
+.bandFollowButton.isActive {
   background: var(--green);
+  color: var(--white);
+}
+
+.bandLikeButton.isActive {
+  background: var(--coral);
+  border-color: var(--coral);
+  color: var(--white);
+}
+
+.bandFollowButton.isActive:hover,
+.bandFollowButton.isActive:focus-visible {
+  background: var(--brown);
+  color: var(--white);
+}
+
+.bandLikeButton.isActive:hover,
+.bandLikeButton.isActive:focus-visible {
+  background: #d9574e;
   color: var(--white);
 }
 
