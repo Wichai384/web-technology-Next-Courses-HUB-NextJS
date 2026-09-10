@@ -11,6 +11,7 @@ type BandExplorerProps = {
 export default function BandExplorer ({ bands }: BandExplorerProps) {
   const [keyword, setKeyword] = useState("");
   const [followingIds, setFollowingIds] = useState<number[]>([]);
+  const [showFollowingOnly, setShowFollowingOnly] = useState(false);
   const [likeCounts, setLikeCounts] = useState<Record<number, number>>({});
 
   function handleKeywordChange(event: ChangeEvent<HTMLInputElement>) {
@@ -20,8 +21,9 @@ export default function BandExplorer ({ bands }: BandExplorerProps) {
   const searchText = keyword.trim().toLowerCase();
   const visibleBands = bands.filter(
     (band) =>
-      band.name.toLowerCase().includes(searchText) ||
-      band.genre.toLowerCase().includes(searchText),
+      (band.name.toLowerCase().includes(searchText) ||
+        band.genre.toLowerCase().includes(searchText)) &&
+      (!showFollowingOnly || followingIds.includes(band.id)),
   );
 
   function handleToggleFollowing(id: number) {
@@ -50,6 +52,14 @@ export default function BandExplorer ({ bands }: BandExplorerProps) {
           onChange={handleKeywordChange}
           placeholder="ค้นหาชื่อวงดนตรีหรือแนวเพลง"
         />
+        <button
+          type="button"
+          className={`followingFilterButton${showFollowingOnly ? " isActive" : ""}`}
+          aria-pressed={showFollowingOnly}
+          onClick={() => setShowFollowingOnly((isVisible) => !isVisible)}
+        >
+          {showFollowingOnly ? "แสดงทุกวง" : "ดูวงที่ติดตาม"}
+        </button>
       </div>
 
       <p className="followingCount">
@@ -57,7 +67,11 @@ export default function BandExplorer ({ bands }: BandExplorerProps) {
       </p>
 
       {visibleBands.length === 0 ? (
-        <p className="emptyState">ไม่พบวงดนตรีที่ตรงกับเงื่อนไข</p>
+        <p className="emptyState">
+          {showFollowingOnly
+            ? "ยังไม่มีวงดนตรีที่กำลังติดตาม"
+            : "ไม่พบวงดนตรีที่ตรงกับเงื่อนไข"}
+        </p>
       ) : (
         <section className="band-grid">
           {visibleBands.map((band) => (
