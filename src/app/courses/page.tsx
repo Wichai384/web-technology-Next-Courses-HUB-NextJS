@@ -1,5 +1,5 @@
 import { courses } from "../../data/coursesdata";
-import CourseExplorer from "../../components/CourseExplorer";
+import CourseExplorer from "../../components/courses/CourseExplorer";
 export const metadata = {
   title: "รายวิชา",
 };
@@ -7,7 +7,7 @@ export const metadata = {
 export default function AboutCourses() {
   return (
     <main>
-      <CourseExplorer courses={courses} />
+      <CourseExplorer initialCourses={courses} />
     </main>
   );
 }

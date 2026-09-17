@@ -1,6 +1,6 @@
 
 import Image from "next/image";
-import type { Band } from "../types/Band";
+import type { Band } from "../../types/Band";
 
 type BandCardProps = {
   band: Band;

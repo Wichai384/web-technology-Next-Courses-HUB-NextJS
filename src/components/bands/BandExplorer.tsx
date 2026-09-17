@@ -1,7 +1,7 @@
 "use client";
 
 import { useState, type ChangeEvent } from "react";
-import type { Band } from "../types/Band";
+import type { Band } from "../../types/Band";
 import BandCard from "./BandCard";
 
 type BandExplorerProps = {
@@ -33,7 +33,8 @@ export default function BandExplorer ({ bands }: BandExplorerProps) {
   const visibleBands = bands.filter(
     (band) =>
       (band.name.toLowerCase().includes(searchText) ||
-        band.genre.toLowerCase().includes(searchText)) &&
+        band.genre.toLowerCase().includes(searchText)
+      ) &&
       (!showFollowingOnly || followingIds.includes(band.id)),
   );
 

@@ -2,15 +2,19 @@ import type { Course } from "../types/Course";
 
 export const courses: Course[] = [
     {
-        id: 1, code: "10301231", title: "เว็บเทคโนโลยี", credits: 3, isOpen: true 
+        id: "CS201", code: "CS201", name: "Web Technology", credit: 3, instructor: "อาจารย์ผู้สอนรายวิชา",
     },
     {
-        id: 2, code: "10301202", title: "โครงสร้างข้อมูล", credits: 3, isOpen: true 
+        id: "CS202", code: "CS202", name: "Data Structures", credit: 3, instructor: "อาจารย์ผู้สอนรายวิชา",
     },
     {
-        id: 3, code: "10301245", title: "ระบบฐานข้อมูล", credits: 3, isOpen: false 
+        id: "CS203", code: "CS203", name: "Software Engineering", credit: 3, instructor: "อาจารย์ผู้สอนรายวิชา",
     },
     {
-        id: 4, code: "10301321", title: "วิศวกรรมซอฟต์แวร์", credits: 3, isOpen: true 
+        id: "CS101",code: "CS101",name: "Introduction to Computer Science",credit: 3,instructor: "อาจารย์ผู้สอนรายวิชา",
     },
-];
+    {
+        id: "CS205",code: "CS205",name: "Data Structures and Algorithms",credit: 3,instructor: "อาจารย์ผู้สอนรายวิชา",
+    },
+
+];  
