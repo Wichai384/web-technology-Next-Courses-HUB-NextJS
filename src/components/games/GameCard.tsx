@@ -11,8 +11,8 @@ type GameCardProps = {
 };
 
 // แสดงการ์ดเกม 1 รายการ
-// เชื่อมกับ GameExplorer.tsx ที่ส่งข้อมูลและ callback เข้ามา
-// ลิงก์ชื่อเกมไปยัง app/games/[gameID]/page.tsx
+// รับ game และ callback จาก GameExplorer.tsx
+// ลำดับการทำงาน: แสดงข้อมูล -> กดปุ่ม -> เรียก callback กลับไป GameExplorer.tsx
 export default function GameCard({
   game,
   isFavorite = false,
@@ -20,7 +20,7 @@ export default function GameCard({
   onEdit,
   onDelete,
 }: GameCardProps) {
-  // แสดงข้อมูลเกมและปุ่มที่ผู้ใช้สามารถกดจัดการได้
+  // แสดงข้อมูลเกมและปุ่มจัดการของเกมรายการนี้
   return (
     <article className="courseCard">
       {/* ชื่อเกมกดไปยัง app/games/[gameID]/page.tsx โดยใช้ชื่อเป็น URL */}

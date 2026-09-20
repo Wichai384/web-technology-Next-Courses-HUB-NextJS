@@ -48,6 +48,7 @@ function toDraft(game?: Game): GameDraft {
 }
 
 // ฟอร์มนี้ใช้ร่วมกันทั้งการเพิ่มเกมใหม่และแก้ไขเกมเดิม
+// ลำดับการทำงาน: พิมพ์ข้อมูล -> handleChange -> validate -> handleSubmit -> GameExplorer
 export default function GameForm({
   initialGame,
   existingGames,
@@ -58,7 +59,7 @@ export default function GameForm({
   const [draft, setDraft] = useState<GameDraft>(() => toDraft(initialGame));
   const [errors, setErrors] = useState<FormErrors>({});
 
-  // ตรวจสอบข้อมูลทุกช่องก่อนอนุญาตให้ส่ง draft ไป GameExplorer.tsx
+  // 1) ตรวจสอบข้อมูลทุกช่องก่อนอนุญาตให้ส่ง draft ไป GameExplorer.tsx
   function validate(value: GameDraft): FormErrors {
     const nextErrors: FormErrors = {};
     const storageSpace = Number(value.Storage_space);
@@ -105,13 +106,13 @@ export default function GameForm({
     return nextErrors;
   }
 
-  // อ่าน name/value จาก input แล้วอัปเดต field ที่ตรงกันใน draft
+  // 2) รับค่าจาก input ทุกช่อง แล้วอัปเดต field ที่ตรงกันใน draft
   function handleChange(event: ChangeEvent<HTMLInputElement>) {
     const { name, value } = event.target;
     setDraft((currentDraft) => ({ ...currentDraft, [name]: value }));
   }
 
-  // หยุดการ reload หน้าเว็บ ตรวจสอบข้อมูล และเรียก onSave เมื่อข้อมูลถูกต้อง
+  // 3) เมื่อกดบันทึก: หยุด reload -> validate -> เรียก onSave ไป GameExplorer.tsx
   function handleSubmit(event: FormEvent<HTMLFormElement>) {
     event.preventDefault();
 
@@ -128,6 +129,7 @@ export default function GameForm({
   }
 
   return (
+    // 4) แสดง input ทั้งหมด โดยทุก input ใช้ draft และ handleChange ร่วมกัน
     <form className="courseForm" onSubmit={handleSubmit} noValidate>
       {/* ช่องกรอกข้อมูลเกม: ทุกช่องใช้ handleChange ร่วมกัน */}
       <div className="courseField">
