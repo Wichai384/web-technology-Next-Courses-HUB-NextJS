@@ -9,7 +9,8 @@ export type Game = {
 };
 
 /*
-การพิ่มเกม = กดแก้ไข -> กรอกข้อมูล -> กดบันทึก -> จะตรวจสอบ validate -> ถ้าผ่านจะทำ draft และส่งให้ Explorer
+การพิ่มเกม = กดแก้ไข -> กรอกข้อมูล -> กดบันทึก -> จะตรวจสอบ validate -> ถ้าผ่านจะทำ draft และส่งให้ Explorer 
+-> Explorer จะทำ handleCreate(draft) -> setGameList([...gameList, newGame]) -> ส่งไปให้ card
 */
 
 /*
